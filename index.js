@@ -52,6 +52,6 @@ app.get('/webhooks/inbound-sms', (req, res) => {
 
 })
 
-app.listen(3000, function(){
+app.listen(process.env.PORT || 5000, function(){
   console.log('runing on port ' + process.env.PORT)
 })
