@@ -1,0 +1,23 @@
+{
+  "name": "nexmo_sms",
+  "version": "1.0.0",
+  "description": "nexmo client for sending sms",
+  "main": "index.js",
+  "scripts": {
+    "go": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jossbdn/frichti_app.git"
+  },
+  "author": "josselin bodan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jossbdn/frichti_app/issues"
+  },
+  "homepage": "https://github.com/jossbdn/frichti_app#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
