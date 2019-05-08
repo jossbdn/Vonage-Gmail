@@ -1,0 +1,13 @@
+{
+    "name": "jboda/frichti_app",
+    "authors": [
+        {
+            "name": "Josselin Bodan",
+            "email": "jbodan@orange.fr"
+        }
+    ],
+    "require": {
+        "slim/slim": "^3.12",
+        "nexmo/client": "^1.8"
+    }
+}
