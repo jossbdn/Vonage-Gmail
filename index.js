@@ -4,17 +4,8 @@ const app = express()
 const dotenv = require('dotenv')
 dotenv.config()
 
-const nodemailer = require('nodemailer')
-const transporter = nodemailer.createTransport({
-  host: process.env.MAIL_HOST,
-  port: process.env.MAIL_PORT,
-  secure: false,
-  requireTLS: true,
-  auth: {
-    user: process.env.MAIL_USER,
-    pass: process.env.MAIL_PASSWORD
-  }
-})
+const sgMail = require('@sendgrid/mail')
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 app.get('/', function (req, res){
   res.send('Hello World!')
@@ -35,16 +26,13 @@ app.get('/webhooks/inbound-sms', (req, res) => {
   console.log(process.env.MAIL_USER + process.env.MAIL_PASSWORD)
 
   const mailOptions = {
-    from: process.env.MAIL_USER + '<'+process.env.MAIL_PASSWORD+'>',
+    from: 'test@example.com',
     to: process.env.MAIL_TO,
     subject: 'NEXMO || INCOME SMS',
     text: text
   }
 
-  transporter.sendMail(mailOptions, function(err, info){
-    if(err)
-      console.log(err)
-  })
+  sgMail.send(mailOptions)
 
   console.log(nexmo_res)
 
