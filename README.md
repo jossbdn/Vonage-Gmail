@@ -1,5 +1,5 @@
 # Nexmo SMS Receiver
-Client pour recevoir des mails depuis
+Client for receiving nexmo sms on custom email
 
 - [NODEJS](https://nodejs.org/en/)
 - [SENDGRID](https://sendgrid.com)
