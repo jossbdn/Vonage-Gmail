@@ -5,30 +5,18 @@ const nodemailer = require('nodemailer')
 const dotenv = require('dotenv')
 dotenv.config()
 
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.GAUTH,
+    pass: process.env.GPASSWORD
+  }
+})
+
 app.get('/', function (req, res){
 
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.GAUTH,
-      pass: process.env.GPASSWORD
-    }
-  })
-
-  const mailOptions = {
-    from: process.env.GAUTH,
-    to: process.env.MAIL_TO,
-    subject: 'Sending Email using Node.js',
-    text: 'That was easy!'
-  }
-
-  transporter.sendMail(mailOptions, function(error, info){
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Email sent: ' + info.response);
-    }
-  })
+  res.statusCode = 200
+  res.end('Hello World')
 
 })
 
