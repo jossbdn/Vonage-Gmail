@@ -7,14 +7,28 @@ dotenv.config()
 
 app.get('/', function (req, res){
 
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.GAUTH,
+      pass: process.env.GPASSWORD
+    }
+  })
+
   const mailOptions = {
-    from: process.env.MAIL_USER,
+    from: process.env.GAUTH,
     to: process.env.MAIL_TO,
-    subject: 'NEXMO || INCOME SMS',
-    text: "wesh"
+    subject: 'Sending Email using Node.js',
+    text: 'That was easy!'
   }
 
-  res.sendStatus(204)
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  })
 
 })
 
