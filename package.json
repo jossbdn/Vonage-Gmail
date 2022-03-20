@@ -19,9 +19,9 @@
   },
   "homepage": "https://github.com/jossbdn/frichti_app#readme",
   "dependencies": {
-    "@sendgrid/mail": "^6.4.0",
     "dotenv": "^8.0.0",
     "express": "^4.16.4",
+    "nodemailer": "^6.7.2",
     "nodemon": "^1.19.0"
   }
 }
