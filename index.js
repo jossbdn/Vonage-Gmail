@@ -20,36 +20,22 @@ app.get('/', function (req, res){
 
 })
 
-app.get('/webhooks/inbound-sms', (req, res) => {
-
-  const from = req.query.msisdn
-  const to = req.query.to
-  const text = req.query.text
-
-  const nexmo_res = {
-    msisdn: from,
-    to: to,
-    text: text
-  }
-
-  console.log(process.env.MAIL_USER + process.env.MAIL_PASSWORD)
+app.post('/webhooks/inbound-sms', (req, res) => {
 
   const mailOptions = {
-    from: process.env.MAIL_USER,
+    from: process.env.GAUTH,
     to: process.env.MAIL_TO,
-    subject: 'NEXMO || INCOME SMS',
-    text: text
+    subject: '🍟 YOU HAVE A NEW SMS 🍟',
+    text: req.query.text,
   }
 
-  sgMail.send(mailOptions)
-  .then(() => {
-    console.log('Email sent')
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error)
+    } else {
+      console.log('email sent')
+    }
   })
-  .catch((error) => {
-    console.error(error)
-  })
-
-  console.log(nexmo_res)
 
   res.sendStatus(204)
 
