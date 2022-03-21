@@ -26,7 +26,7 @@ app.post('/webhooks/inbound-sms', (req, res) => {
     from: process.env.GAUTH,
     to: process.env.MAIL_TO,
     subject: '🍟 YOU HAVE A NEW SMS 🍟',
-    text: req.text,
+    text: req.query.text,
   }
 
   transporter.sendMail(mailOptions, function(error, info){
