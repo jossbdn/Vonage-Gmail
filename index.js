@@ -20,7 +20,7 @@ app.get('/', function (req, res){
 
 })
 
-app.post('/webhooks/inbound-sms', (req, res) => {
+app.get('/webhooks/inbound-sms', (req, res) => {
 
   const mailOptions = {
     from: process.env.GAUTH,
