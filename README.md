@@ -16,7 +16,7 @@
 
 # Getting Started
 
-Here is the list of services you need to use <u>Nexmo SMS Receiver</u> :
+Here is the list of services you need to use <u>Vonage & Gmail</u> :
 - [NODEJS](https://nodejs.org/en/)
 - [Vonage (ByNexmo)](https://www.vonage.fr/)
 - [Gmail](https://mail.google.com/)
